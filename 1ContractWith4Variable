@@ -1,0 +1,57 @@
+// SPDXP-License-Identifier:MIT
+pragma solidity ^0.8.0;
+
+contract myFirstContract{
+    uint studentUid; //stores myUID
+    string studentName; //stores studentName
+    uint studentAge; // stores age
+    address studentAddressOnBlockchain;
+    
+    // functionForUID
+    function inputStudentUID(uint _studentUid) public returns(uint)
+    {
+        studentUid = _studentUid;
+        return studentUid;
+    }
+
+    // functionForNAME
+    function storesStudentName(string memory _studentName) public returns(string memory)
+    {
+        studentName = _studentName;
+        return studentName;
+    }
+
+    // functionForAGE
+    function storesStudentAge(uint _studentAge) public returns(uint)
+    {
+        studentAge = _studentAge;
+        return studentAge;
+    }
+
+    // functionForADDRESS
+    function storesStudentAddress(address _studentAddress) public returns (address)
+    {
+        studentAddressOnBlockchain = _studentAddress;
+        return studentAddressOnBlockchain;
+    }
+
+    // functions to get the valuse from useeer
+    function getStudentUID() public view returns(uint){
+        return studentUid;
+    }
+
+    // functions to get the valuse from useeer
+    function getStudentNAME() public view returns(string memory){
+        return studentName;
+    }
+
+    // functions to get the valuse from useeer
+    function getStudentAGE() public view returns(uint){
+        return studentAge;
+    }
+
+    // functions to get the valuse from useeer
+    function getStudentAddress() public view returns(address){
+        return studentAddressOnBlockchain;
+    }
+}
