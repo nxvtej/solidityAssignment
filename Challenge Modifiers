@@ -1,0 +1,28 @@
+// SPDX-License-Identifier:MIT
+pragma solidity ^0.8.0;
+
+contract modifiersOnlyAdmin{
+    uint randomVariable1 ;
+    uint randomVariable2 ;
+    uint randomVariable3 ;
+    address admin;
+
+    constructor(){
+        admin = msg.sender;
+    }
+
+    modifier onlyAdminAccess{
+        require(msg.sender == admin , "Access is strictly restricted to Admin only ");
+        _;
+    }
+
+    function setValues(uint _randomVariable1 , uint _randomVariable2 , uint _randomVariable3) public onlyAdminAccess{
+        randomVariable1 = _randomVariable1;
+        randomVariable2 = _randomVariable2;
+        randomVariable3 = _randomVariable3;
+    }
+
+    function getBiggestValue () public view onlyAdminAccess returns(uint){
+        return (randomVariable1 >= randomVariable2 && randomVariable1 >= randomVariable3) ? randomVariable1 :(randomVariable2 >= randomVariable1 && randomVariable2 >= randomVariable3) ? randomVariable2 :randomVariable3;
+    }
+}
